@@ -1,11 +1,7 @@
 const baseURL = "https://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/migr_asyappctza?citizen=EU28&filterNonGeo=1&precision=1&sex=T&asyl_app=ASY_APP&geo=TOTAL&unit=PER&unitLabel=label&shortLabel=1&age=TOTAL";
-
-function getData(value,cb) {
+// test link "https://swapi.co/api/";
+function getData(type, cb) {
     var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", baseURL + value + "/" );
-    // GET is to retrieve data (in contrast to POST for sending data)
-    xhr.send();
 
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -17,10 +13,15 @@ function getData(value,cb) {
             //JSON.parse changes the string into an object and makes it readable
         }
     };
+
+    xhr.open("GET", baseURL + type + "/");
+    // GET is to retrieve data (in contrast to POST for sending data)
+    xhr.send();
+
 }
 
-function writeToDocument(value){
-    getData(value,function(data){
+function writeToDocument(type) {
+    getData(type, function(data) {
         console.dir(data);
         document.getElementById("data").innerHTML = data;
     });
