@@ -1,0 +1,53 @@
+/*Fonts*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700|Assistant:100,200,300,400,500,600,700');
+
+/*reset standard padding and margin*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*HEADER*/
+
+.logo {
+    background-color: #FF6600;
+    height: 50px;
+}
+
+.logo img {
+    max-width: auto;
+    height: 100%;
+    padding: 10px 0px;
+}
+
+.title {
+    font-family: "Roboto", sans-serif;
+    padding-top: 15px;
+    border-bottom: solid 5px #FF6600;
+}
+
+.title h1 {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.title p {
+    font-size: 12px;
+    font-style: italic;
+}
+
+@media (min-width:576px) {
+    /*HEADER*/
+    .logo {
+        height: 100px;
+
+    }
+    .title h1 {
+        font-size: 40px;
+    }
+    .title p {
+        font-size: 18px;
+    }
+}
