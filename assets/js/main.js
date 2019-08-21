@@ -17,4 +17,4 @@ function printDataToConsole(data) {
     console.log(data.value);
 }
 
-getData(printDataToConsole);
+// getData(printDataToConsole);
