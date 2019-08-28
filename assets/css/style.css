@@ -38,6 +38,17 @@ body {
     font-style: italic;
 }
 
+/*TOTAL_ASYLUM_APPL_GRAPH*/
+
+.total_graph {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
 @media (min-width:576px) {
     /*HEADER*/
     .logo {
