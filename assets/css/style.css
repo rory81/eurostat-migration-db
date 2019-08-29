@@ -40,7 +40,7 @@ body {
 
 /*TOTAL_ASYLUM_APPL_GRAPH*/
 
-.total_graph {
+.total_graph.dc-chart {
     display: block;
     margin: 0 auto;
 }
