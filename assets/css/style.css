@@ -40,12 +40,16 @@ body {
 
 /*TOTAL_ASYLUM_APPL_GRAPH*/
 
-.total_graph.dc-chart {
+.center-graphs.dc-chart {
     display: block;
     margin: 0 auto;
+    float: none;
 }
 
-
+svg g {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
 
 
 
