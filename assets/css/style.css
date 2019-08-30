@@ -40,6 +40,12 @@ body {
 
 /*TOTAL_ASYLUM_APPL_GRAPH*/
 
+.total_graph h3 {
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
 .center-graphs.dc-chart {
     display: block;
     margin: 0 auto;
@@ -49,13 +55,37 @@ body {
 svg g {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
+    font-size: 8px;
+}
+
+.dc-chart .axis text {
+    font: 7px "Roboto";
+}
+
+
+/*COUNTRIES COLUMN*/
+.country{
+    display: block;
+    float: left;
 }
 
 
 
+/*SEX_AGE COLUMN*/
+.sex_age{
+    display: block;
+    float: right;
+}
+
+
+
+
+
+
+
+
 @media (min-width:576px) {
-    /*HEADER*/
-    .logo {
+    HEADER .logo {
         height: 100px;
 
     }
@@ -64,5 +94,34 @@ svg g {
     }
     .title p {
         font-size: 18px;
+    }
+    /*TOTAL_ASYLUM_APPL_GRAPH*/
+    .total_graph h3 {
+        margin-top: 20px;
+        font-size: 12px;
+    }
+
+    svg g {
+        font-size: 11px;
+    }
+
+    .dc-chart .axis text {
+        font: 8px "Roboto";
+    }
+}
+
+@media (min-width:720px) {
+    /*TOTAL_ASYLUM_APPL_GRAPH*/
+    .total_graph h3 {
+        margin-top: 40px;
+        font-size: 14px;
+    }
+    
+    svg g {
+        font-size: 12px;
+    }
+
+    .dc-chart .axis text {
+        font: 12px "Roboto";
     }
 }

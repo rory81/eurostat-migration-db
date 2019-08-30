@@ -9,9 +9,9 @@ function makeGraphs(error, migrData) {
     var total_asylum_applications_per_year = time_dim.group().reduceSum(dc.pluck('Value'));
 
     dc.barChart('#total_asylum_applications_per_year')
-        .width(1000)
-        .height(500)
-        .margins({ top: 10, right: 50, bottom: 30, left: 50 })
+        .width(300)
+        .height(150)
+        .margins({ top: 10, right: 30, bottom: 30, left: 30 })
         .dimension(time_dim)
         .group(total_asylum_applications_per_year)
         .transitionDuration(500)
