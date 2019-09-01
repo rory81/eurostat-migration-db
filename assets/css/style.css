@@ -64,19 +64,17 @@ svg g {
 
 
 /*COUNTRIES COLUMN*/
-.country{
-    display: block;
-    float: left;
-}
 
+.country {
+    width: 100%;
+}
 
 
 /*SEX_AGE COLUMN*/
-.sex_age{
-    display: block;
-    float: right;
-}
 
+.sex_age {
+    width: 100%;
+}
 
 
 
@@ -95,33 +93,50 @@ svg g {
     .title p {
         font-size: 18px;
     }
-    /*TOTAL_ASYLUM_APPL_GRAPH*/
-    .total_graph h3 {
-        margin-top: 20px;
-        font-size: 12px;
-    }
+}
+
+/*TOTAL_ASYLUM_APPL_GRAPH*/
 
     svg g {
-        font-size: 11px;
+
+        font: 11px "Roboto";
+
     }
 
     .dc-chart .axis text {
+
         font: 8px "Roboto";
+
     }
-}
+
 
 @media (min-width:720px) {
     /*TOTAL_ASYLUM_APPL_GRAPH*/
     .total_graph h3 {
         margin-top: 40px;
-        font-size: 14px;
-    }
-    
-    svg g {
-        font-size: 12px;
-    }
-
-    .dc-chart .axis text {
-        font: 12px "Roboto";
+        font-size: 18px;
     }
 }
+
+@media (min-width:1024px) {
+    /*TOTAL_ASYLUM_APPL_GRAPH*/
+    .total_graph h3 {
+        margin-top: 40px;
+        font-size: 30px;
+    }
+}
+
+
+/*    svg g {*/
+
+/*        font-size: 12px;*/
+
+/*    }*/
+
+/*    .dc-chart .axis text {*/
+
+/*        font: 12px "Roboto";*/
+
+/*    }*/
+
+/*}*/
