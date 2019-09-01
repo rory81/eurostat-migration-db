@@ -52,15 +52,17 @@ body {
     float: none;
 }
 
-svg g {
+.y-axis-label {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-size: 8px;
+    /*transform: translate(8,65);*/ 
 }
 
 .dc-chart .axis text {
     font: 7px "Roboto";
 }
+
 
 
 /*COUNTRIES COLUMN*/
@@ -95,20 +97,6 @@ svg g {
     }
 }
 
-/*TOTAL_ASYLUM_APPL_GRAPH*/
-
-    svg g {
-
-        font: 11px "Roboto";
-
-    }
-
-    .dc-chart .axis text {
-
-        font: 8px "Roboto";
-
-    }
-
 
 @media (min-width:720px) {
     /*TOTAL_ASYLUM_APPL_GRAPH*/
@@ -125,18 +113,3 @@ svg g {
         font-size: 30px;
     }
 }
-
-
-/*    svg g {*/
-
-/*        font-size: 12px;*/
-
-/*    }*/
-
-/*    .dc-chart .axis text {*/
-
-/*        font: 12px "Roboto";*/
-
-/*    }*/
-
-/*}*/
