@@ -37,14 +37,15 @@ body {
     font-size: 12px;
     font-style: italic;
 }
-
-/*TOTAL_ASYLUM_APPL_GRAPH*/
-
-.total_graph h3 {
+/*GENERAL STYLING*/
+h3 {
     margin-top: 10px;
     font-size: 10px;
     font-weight: bold;
 }
+
+
+/*TOTAL_ASYLUM_APPL_GRAPH*/
 
 .center-graphs.dc-chart {
     display: block;
@@ -67,7 +68,7 @@ body {
 
 /*COUNTRIES COLUMN*/
 
-.country {
+.countries {
     width: 100%;
 }
 
@@ -100,7 +101,7 @@ body {
 
 @media (min-width:720px) {
     /*TOTAL_ASYLUM_APPL_GRAPH*/
-    .total_graph h3 {
+    h3 {
         margin-top: 40px;
         font-size: 18px;
     }
@@ -108,7 +109,7 @@ body {
 
 @media (min-width:1024px) {
     /*TOTAL_ASYLUM_APPL_GRAPH*/
-    .total_graph h3 {
+    h3 {
         margin-top: 40px;
         font-size: 30px;
     }

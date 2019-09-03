@@ -3,16 +3,16 @@ queue()
     .await(makeGraphs);
 
 function makeGraphs(error, migrData) {
-    
-    migrData.forEach(function(d){
+
+    migrData.forEach(function(d) {
         d.Value = parseInt(d["Value"])
     })
-    
+
     var ndx = crossfilter(migrData);
     var time_dim = ndx.dimension(dc.pluck('TIME'));
     var total_asylum_applications_per_year = time_dim.group().reduceSum(dc.pluck('Value'));
-    
-    // var country_dim =ndx.dimension(dc.pluck())
+    var countries_dim = ndx.dimension(dc.pluck('GEO'));
+    var top_5_countries = countries_dim.group();
 
     dc.barChart('#total_asylum_applications_per_year')
         .width(300)
@@ -28,7 +28,18 @@ function makeGraphs(error, migrData) {
         .yAxisLabel("# asylum applicants")
         .yAxis().ticks(5);
         
-    
+    dc.pieChart('#top-5-pie')
+        .width(330)
+        .radius(90)
+        .useViewBoxResizing(true)
+        .transitionDuration(1500)
+        .dimension(countries_dim)
+        .group(top_5_countries)
+        .slicesCap([5])
+        .legend(dc.legend().x(270).y(0).gap(5));;
+        
+
+
 
     dc.renderAll();
 
