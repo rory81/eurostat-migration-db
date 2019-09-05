@@ -5,7 +5,8 @@ queue()
 function makeGraphs(error, migrData) {
 
     migrData.forEach(function(d) {
-        d.Value = parseInt(d["Value"])
+        d.Value = d["Value"].replace(/,/g, '');
+        d.Value = parseInt(d["Value"]);
     })
 
     var ndx = crossfilter(migrData);
@@ -13,6 +14,7 @@ function makeGraphs(error, migrData) {
     var total_asylum_applications_per_year = time_dim.group().reduceSum(dc.pluck('Value'));
     var countries_dim = ndx.dimension(dc.pluck('GEO'));
     var total_per_country = countries_dim.group().reduceSum(dc.pluck('Value'));
+    var top_5_country = countries_dim.group().reduceSum(dc.pluck('Value')).top(5);
 
     // Total per year according to data
     // 2013	457630
@@ -34,7 +36,7 @@ function makeGraphs(error, migrData) {
         .xUnits(dc.units.ordinal)
         .ordinalColors(["#FF6600"])
         .yAxisLabel("# asylum applicants")
-        .yAxis().ticks(5);
+        .yAxis().ticks(5).tickFormat(function(d) { return d / 1000000 + " M" });
 
 
     // Top-5 countries according to data
@@ -53,9 +55,8 @@ function makeGraphs(error, migrData) {
         .cap(5)
         .dimension(countries_dim)
         .group(total_per_country)
-        .legend(dc.legend().x(270).y(0).gap(5));
-
-
+        .legend(dc.legend().x(270).y(0).gap(5))
+        .renderLabel(false);
 
 
     dc.renderAll();

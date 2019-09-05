@@ -37,7 +37,9 @@ body {
     font-size: 12px;
     font-style: italic;
 }
+
 /*GENERAL STYLING*/
+
 h3 {
     margin-top: 10px;
     font-size: 10px;
@@ -57,8 +59,9 @@ h3 {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-size: 8px;
-    /*transform: translate(8,65);*/ 
+    /*transform: translate(6,65);*/
 }
+
 
 .dc-chart .axis text {
     font: 7px "Roboto";
@@ -68,16 +71,17 @@ h3 {
 
 /*COUNTRIES COLUMN*/
 
-.countries {
-    width: 100%;
-}
+/*.countries {*/
+/*    width: 100%;*/
+
+/*}*/
 
 
 /*SEX_AGE COLUMN*/
 
-.sex_age {
-    width: 100%;
-}
+/*.sex_age {*/
+/*    width: 100%;*/
+/*}*/
 
 
 
