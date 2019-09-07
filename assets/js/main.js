@@ -46,6 +46,20 @@ function makeGraphs(error, migrData) {
     // Sweden	375080
     // Hungary	266495
 
+    dc.dataTable("#top-5")
+        .width(250).height(800)
+        .dimension(countries_dim)
+        .group(function(d) { return ' ' }).size(5) // number of rows to return
+        .columns([
+            function(d) { return d.Country; },
+            function(d) { return d.Total; },
+            function(d) { return d.Percentage; },
+
+        ])
+        .sortBy(function(d) { return d.Value; })
+        .order(d3.ascending);
+
+
 
     dc.pieChart('#top-5-pie')
         .width(330)
