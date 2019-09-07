@@ -44,6 +44,13 @@ h3 {
     margin-top: 10px;
     font-size: 10px;
     font-weight: bold;
+    font-family: "Roboto", sans-serif;
+}
+
+th {
+    font-size: 10px;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
 }
 
 
@@ -72,22 +79,18 @@ h3 {
 /*COUNTRIES COLUMN*/
 
 /*.countries {*/
+
 /*    width: 100%;*/
 
 /*}*/
-
 
 /*SEX_AGE COLUMN*/
 
 /*.sex_age {*/
+
 /*    width: 100%;*/
+
 /*}*/
-
-
-
-
-
-
 
 @media (min-width:576px) {
     HEADER .logo {
@@ -109,7 +112,12 @@ h3 {
         margin-top: 40px;
         font-size: 18px;
     }
+    th {
+        font-size: 18px;
+    }
 }
+
+
 
 @media (min-width:1024px) {
     /*TOTAL_ASYLUM_APPL_GRAPH*/
