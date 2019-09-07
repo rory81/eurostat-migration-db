@@ -49,15 +49,17 @@ function makeGraphs(error, migrData) {
     dc.dataTable("#top-5")
         .width(250).height(800)
         .dimension(countries_dim)
-        .group(function(d) { return ' ' }).size(5) // number of rows to return
+        .group(function(d) { return 'total_per_country' })
+        .data(top_5_country)
+        .size(5) // number of rows to return
         .columns([
-            function(d) { return d.Country; },
-            function(d) { return d.Total; },
+            function(d) { return d.GEO; },
+            function(d) { return d.Value; },
             function(d) { return d.Percentage; },
 
         ])
-        .sortBy(function(d) { return d.Value; })
-        .order(d3.ascending);
+        .sortBy(function(d) { return d.Country; })
+        .order(d3.descending);
 
 
 

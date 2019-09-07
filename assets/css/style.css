@@ -47,12 +47,6 @@ h3 {
     font-family: "Roboto", sans-serif;
 }
 
-th {
-    font-size: 10px;
-    font-weight: bold;
-    font-family: "Roboto", sans-serif;
-}
-
 
 /*TOTAL_ASYLUM_APPL_GRAPH*/
 
@@ -75,8 +69,18 @@ th {
 }
 
 
-
 /*COUNTRIES COLUMN*/
+th {
+    font-size: 10px;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+}
+
+.card{
+    margin-bottom:50px;
+}
+
+
 
 /*.countries {*/
 
