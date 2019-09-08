@@ -14,7 +14,11 @@ function makeGraphs(error, migrData) {
     var total_asylum_applications_per_year = time_dim.group().reduceSum(dc.pluck('Value'));
     var countries_dim = ndx.dimension(dc.pluck('GEO'));
     var total_per_country = countries_dim.group().reduceSum(dc.pluck('Value'));
-    var top_5_country = countries_dim.group().reduceSum(dc.pluck('Value')).top(5);
+    // var top_5_country = countries_dim.group().reduceSum(dc.pluck('Value')).top(5);
+    var sex_dim = ndx.dimension(dc.pluck('SEX'));
+    var total_per_sex = sex_dim.group().reduceSum(dc.pluck('Value'));
+    var age_dim = ndx.dimension(dc.pluck('AGE'));
+    var total_per_age = age_dim.group().reduceSum(dc.pluck('Value'));
 
     // Total per year according to data
     // 2013	457630
@@ -49,8 +53,7 @@ function makeGraphs(error, migrData) {
     dc.dataTable("#top-5")
         .width(250).height(800)
         .dimension(countries_dim)
-        .group(function(d) { return 'total_per_country' })
-        .data(top_5_country)
+        .group(function(d) { return d["total_per_country"] })
         .size(5) // number of rows to return
         .columns([
             function(d) { return d.GEO; },
@@ -58,7 +61,7 @@ function makeGraphs(error, migrData) {
             function(d) { return d.Percentage; },
 
         ])
-        .sortBy(function(d) { return d.Country; })
+        .sortBy(function(d) { return d.Value; })
         .order(d3.descending);
 
 
@@ -73,6 +76,35 @@ function makeGraphs(error, migrData) {
         .group(total_per_country)
         .legend(dc.legend().x(270).y(0).gap(5))
         .renderLabel(false);
+
+    // dc.dataTable("#sex")
+    //     .width(250).height(800)
+    //     .dimension(countries_dim)
+    //     .group(function(d) { return d["total_per_country"] })
+    //     .size(5) // number of rows to return
+    //     .columns([
+    //         function(d) { return d.GEO; },
+    //         function(d) { return d.Value; },
+    //         function(d) { return d.Percentage; },
+
+    //     ])
+    //     .sortBy(function(d) { return d.Value; })
+    //     .order(d3.descending);
+
+
+    // dc.dataTable("#age")
+    //     .width(250).height(800)
+    //     .dimension(countries_dim)
+    //     .group(function(d) { return d["total_per_country"] })
+    //     .size(5) // number of rows to return
+    //     .columns([
+    //         function(d) { return d.GEO; },
+    //         function(d) { return d.Value; },
+    //         function(d) { return d.Percentage; },
+
+    //     ])
+    //     .sortBy(function(d) { return d.Value; })
+    //     .order(d3.descending);
 
 
     dc.renderAll();
