@@ -3,22 +3,40 @@ queue()
     .await(makeGraphs);
 
 function makeGraphs(error, migrData) {
+    var ndx = crossfilter(migrData);
 
     migrData.forEach(function(d) {
         d.Value = d["Value"].replace(/,/g, '');
         d.Value = parseInt(d["Value"]);
     })
 
-    var ndx = crossfilter(migrData);
-    var time_dim = ndx.dimension(dc.pluck('TIME'));
-    var total_asylum_applications_per_year = time_dim.group().reduceSum(dc.pluck('Value'));
-    var countries_dim = ndx.dimension(dc.pluck('GEO'));
-    var total_per_country = countries_dim.group().reduceSum(dc.pluck('Value'));
-    // var top_5_country = countries_dim.group().reduceSum(dc.pluck('Value')).top(5);
-    var sex_dim = ndx.dimension(dc.pluck('SEX'));
-    var total_per_sex = sex_dim.group().reduceSum(dc.pluck('Value'));
-    var age_dim = ndx.dimension(dc.pluck('AGE'));
-    var total_per_age = age_dim.group().reduceSum(dc.pluck('Value'));
+    show_barChart(ndx);
+    show_country_table(ndx);
+    show_country_pie(ndx);
+    // show_sex_table(ndx);
+    // show_age_table(ndx);
+
+    dc.renderAll();
+
+}
+
+function show_barChart(ndx) {
+    var dim = ndx.dimension(dc.pluck('TIME'));
+    var sumApplications = dim.group().reduceSum(dc.pluck('Value'));
+
+    // function add_item(p, v) {
+    //     p.total += v.Value;
+    //     return p;
+    // }
+
+    // function remove_item(p, v) {
+    //     p.total -= v.Value;
+    //     return p;
+    // }
+
+    // function initialise() {
+    //     return { total: 0 };
+    // }
 
     // Total per year according to data
     // 2013	457630
@@ -33,8 +51,11 @@ function makeGraphs(error, migrData) {
         .height(150)
         .useViewBoxResizing(true)
         .margins({ top: 10, right: 30, bottom: 30, left: 30 })
-        .dimension(time_dim)
-        .group(total_asylum_applications_per_year)
+        .dimension(dim)
+        .group(sumApplications)
+        // .valueAccessor(function(d) {
+        //     return d.value.total;
+        // })
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -42,71 +63,46 @@ function makeGraphs(error, migrData) {
         .yAxisLabel("# asylum applicants")
         .yAxis().ticks(5).tickFormat(function(d) { return d / 1000000 + " M" });
 
+}
 
-    // Top-5 countries according to data
-    // Germany (until 1990 former territory of the FRG)	1958540
-    // France	510770
-    // Italy	486545
-    // Sweden	375080
-    // Hungary	266495
-
-    dc.dataTable("#top-5")
-        .width(250).height(800)
-        .dimension(countries_dim)
-        .group(function(d) { return d["total_per_country"] })
-        .size(5) // number of rows to return
-        .columns([
-            function(d) { return d.GEO; },
-            function(d) { return d.Value; },
-            function(d) { return d.Percentage; },
-
-        ])
-        .sortBy(function(d) { return d.Value; })
-        .order(d3.descending);
-
-
+function show_country_pie(ndx) {
+    var dim = ndx.dimension(dc.pluck('GEO'));
+    var top5CountryPie = dim.group().reduceSum(dc.pluck('Value'));
 
     dc.pieChart('#top-5-pie')
         .width(330)
         .radius(90)
         .useViewBoxResizing(true)
+        .dimension(dim)
+        .group(top5CountryPie)
         .transitionDuration(1500)
         .cap(5)
-        .dimension(countries_dim)
-        .group(total_per_country)
         .legend(dc.legend().x(270).y(0).gap(5))
         .renderLabel(false);
+}
 
-    // dc.dataTable("#sex")
-    //     .width(250).height(800)
-    //     .dimension(countries_dim)
-    //     .group(function(d) { return d["total_per_country"] })
-    //     .size(5) // number of rows to return
-    //     .columns([
-    //         function(d) { return d.GEO; },
-    //         function(d) { return d.Value; },
-    //         function(d) { return d.Percentage; },
+function show_country_table(ndx) {
+    var dim = ndx.dimension(dc.pluck('GEO'));
+    // var countries = ndx.dimension(function (d) { return d.country });
+    // var top5country = dim.group().reduceSum(function(d) { return d.country })
 
-    //     ])
-    //     .sortBy(function(d) { return d.Value; })
-    //     .order(d3.descending);
+    dc.dataTable('#top-5')
+        .width(250)
+        .height(800)
+        .useViewBoxResizing(true)
+        .dimension(dim)
+        .group(function(d) { return "" })
+        // .valueAccessor(function(d) {
+        //     return sum();
+        // })
+        .size(5)
+        .columns([
+            function(d) { return d.GEO; },
+            function(d) { return d.Value; },
+            // function(d) { return d.Percentage; },
 
-
-    // dc.dataTable("#age")
-    //     .width(250).height(800)
-    //     .dimension(countries_dim)
-    //     .group(function(d) { return d["total_per_country"] })
-    //     .size(5) // number of rows to return
-    //     .columns([
-    //         function(d) { return d.GEO; },
-    //         function(d) { return d.Value; },
-    //         function(d) { return d.Percentage; },
-
-    //     ])
-    //     .sortBy(function(d) { return d.Value; })
-    //     .order(d3.descending);
-
-
-    dc.renderAll();
+        ])
+        .sortBy(function(d) { return d.Value; })
+        .order(d3.descending);
 
 }
