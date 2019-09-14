@@ -3,6 +3,7 @@ queue()
     .await(makeGraphs);
 
 function makeGraphs(error, migrData) {
+
     var ndx = crossfilter(migrData);
 
     migrData.forEach(function(d) {
@@ -23,20 +24,6 @@ function makeGraphs(error, migrData) {
 function show_barChart(ndx) {
     var dim = ndx.dimension(dc.pluck('TIME'));
     var sumApplications = dim.group().reduceSum(dc.pluck('Value'));
-
-    // function add_item(p, v) {
-    //     p.total += v.Value;
-    //     return p;
-    // }
-
-    // function remove_item(p, v) {
-    //     p.total -= v.Value;
-    //     return p;
-    // }
-
-    // function initialise() {
-    //     return { total: 0 };
-    // }
 
     // Total per year according to data
     // 2013	457630
@@ -81,28 +68,56 @@ function show_country_pie(ndx) {
         .renderLabel(false);
 }
 
-function show_country_table(ndx) {
-    var dim = ndx.dimension(dc.pluck('GEO'));
-    // var countries = ndx.dimension(function (d) { return d.country });
-    // var top5country = dim.group().reduceSum(function(d) { return d.country })
 
-    dc.dataTable('#top-5')
-        .width(250)
-        .height(800)
-        .useViewBoxResizing(true)
-        .dimension(dim)
-        .group(function(d) { return "" })
-        // .valueAccessor(function(d) {
-        //     return sum();
-        // })
+
+
+function show_country_table(ndx) {
+    var dataTable = dc.dataTable("#top-5");
+
+
+    //dimension
+    var countryDim = ndx.dimension(function(d) { return d.GEO; });
+
+    //group
+    var orderByWD = countryDim.group().reduceSum(function(d) { return d.Value; });
+
+    // Actually a dimension keyed on week and site
+    var fakeDateDim = {
+        top: function(d) {
+            var m = dc.d3.map();
+            countryDim.top(Infinity).forEach(function(g) {
+                if (m.has(g.GEO)) {
+                    m.get(g.GEO).Value += g.Value;
+                }
+                else {
+                    // Create the "record"
+                    m.set(g.GEO, {
+                        GEO: g.GEO,
+                        Value: g.Value
+                    });
+                }
+            });
+
+            return m.values();
+        }
+    };
+
+
+    dataTable.width(800).height(800)
+        .dimension(fakeDateDim)
+        .group(function(d) { return '' })
         .size(5)
         .columns([
+            // function (d) { var format = d3.format('02d');
+            //    return d.date.getFullYear() +'/'+ format(d.date.getMonth()+1) + '/' + format(d.date.getDate()); },
+            //function (d) { return d.week; },
             function(d) { return d.GEO; },
-            function(d) { return d.Value; },
-            // function(d) { return d.Percentage; },
-
+            function(d) { return d.Value; }
         ])
         .sortBy(function(d) { return d.Value; })
         .order(d3.descending);
 
+    dataTable.on('renderlet', function(chart) {
+        chart.selectAll('.dc-table-group').classed('info', true);
+    });
 }
