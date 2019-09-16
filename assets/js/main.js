@@ -102,7 +102,13 @@ function show_country_table(ndx) {
         ])
         .sortBy(function(d) { return d.Value; })
         .order(d3.descending)
-        .size([1,5]);
+        .size(function(d) {
+            {
+                d.fnClearTable();
+                d.fnAddData(fakeCountryDim.top(5));
+                d.fnDraw();
+            }
+        });
 
     // dataTable.on('renderlet', function(chart) {
     //     chart.selectAll('.dc-table-group').classed('info', true);
