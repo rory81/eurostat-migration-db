@@ -56,11 +56,6 @@ h3 {
     float: none;
 }
 
-.total_graph{
-    width: 100%;
-    height:100%;
-}
-
 .y-axis-label {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
@@ -75,15 +70,17 @@ h3 {
 
 
 /*COUNTRIES COLUMN*/
+
 th {
     font-size: 10px;
     font-weight: bold;
     font-family: "Roboto", sans-serif;
 }
 
-.card{
-    margin-bottom:50px;
+.card {
+    margin-bottom: 50px;
 }
+
 
 
 
@@ -112,26 +109,27 @@ th {
     .title p {
         font-size: 18px;
     }
-}
 
 
-@media (min-width:720px) {
-    /*TOTAL_ASYLUM_APPL_GRAPH*/
-    h3 {
-        margin-top: 40px;
-        font-size: 18px;
+
+    @media (min-width:720px) {
+        /*TOTAL_ASYLUM_APPL_GRAPH*/
+        h3 {
+            margin-top: 40px;
+            font-size: 18px;
+        }
+        th {
+            font-size: 18px;
+        }
     }
-    th {
-        font-size: 18px;
+
+
+
+    @media (min-width:1024px) {
+        /*TOTAL_ASYLUM_APPL_GRAPH*/
+        h3 {
+            margin-top: 40px;
+            font-size: 30px;
+        }
+
     }
-}
-
-
-
-@media (min-width:1024px) {
-    /*TOTAL_ASYLUM_APPL_GRAPH*/
-    h3 {
-        margin-top: 40px;
-        font-size: 30px;
-    }
-}
