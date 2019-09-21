@@ -7,6 +7,7 @@ function makeGraphs(error, migrData) {
     var ndx = crossfilter(migrData);
 
     migrData.forEach(function(d) {
+
         d.Value = d["Value"].replace(/,/g, '');
         d.Value = +d["Value"]; //coerce to number
 
@@ -16,6 +17,7 @@ function makeGraphs(error, migrData) {
         d.AGE = d["AGE"].replace(/65 years or over/g, 'Over 64 years')
 
     });
+
 
     show_barChart(ndx);
     show_country_table(ndx);
@@ -76,6 +78,7 @@ function show_country_pie(ndx) {
 function show_country_table(ndx) {
     var dataTable = dc.dataTable("#top-5");
     var countryDim = ndx.dimension(function(d) { return d.GEO; });
+    var grandTotal = 5208960;
     var valGrpdDim = countryDim.group().reduce(
 
         function(p, v) {
@@ -114,7 +117,7 @@ function show_country_table(ndx) {
         .group(function(d) { return 'Country | Value' })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d){return ((d.value.total/5208960)*100).toFixed(2)+"%"}])
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
         .sortBy(function(d) { return d.value.total; })
         .order(d3.descending);
 }
@@ -122,6 +125,8 @@ function show_country_table(ndx) {
 function show_sex_table(ndx) {
     var dataTable = dc.dataTable("#sexTable");
     var sexDim = ndx.dimension(function(d) { return d.SEX; });
+    var grandTotal = 5208960;
+
     var valGrpdDim = sexDim.group().reduce(
 
         function(p, v) {
@@ -160,7 +165,7 @@ function show_sex_table(ndx) {
         .group(function(d) { return 'Sex | Value' })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d){return ((d.value.total/5208960)*100).toFixed(2)+"%"}])
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
         .sortBy(function(d) { return d.value.total; })
         .order(d3.descending);
 }
@@ -168,6 +173,7 @@ function show_sex_table(ndx) {
 function show_age_table(ndx) {
     var dataTable = dc.dataTable("#ageTable");
     var ageDim = ndx.dimension(function(d) { return d.AGE; });
+    var grandTotal = 5208960;
 
 
     var valGrpdDim = ageDim.group().reduce(
@@ -208,7 +214,7 @@ function show_age_table(ndx) {
         .group(function(d) { return 'Age | Value' })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d){return ((d.value.total/5208960)*100).toFixed(2)+"%"}])
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
         .sortBy(function(d) { return d.age; })
         .order(d3.descending);
 }
