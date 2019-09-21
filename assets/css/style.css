@@ -82,21 +82,13 @@ h3 {
     margin-bottom: 50px;
 }
 
-/*.totalGraph svg{*/
+.btn-primary{
+    background-color: #003399;
+}
 
-/*    width: 100%;*/
-
-/*    height: 165px;*/
-
-/*}*/
-
-/*.countryPie svg{*/
-
-/*    width: 100%;*/
-
-/*    height: 145px;*/
-
-/*}*/
+.btn {
+    font-size: 14px;
+}
 
 /*DATA_TABLES*/
 

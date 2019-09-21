@@ -114,7 +114,7 @@ function show_country_table(ndx) {
         .group(function(d) { return 'Country | Value' })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }])
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d){return ((d.value.total/5208960)*100).toFixed(2)+"%"}])
         .sortBy(function(d) { return d.value.total; })
         .order(d3.descending);
 }
@@ -160,7 +160,7 @@ function show_sex_table(ndx) {
         .group(function(d) { return 'Sex | Value' })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }])
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d){return ((d.value.total/5208960)*100).toFixed(2)+"%"}])
         .sortBy(function(d) { return d.value.total; })
         .order(d3.descending);
 }
@@ -208,7 +208,7 @@ function show_age_table(ndx) {
         .group(function(d) { return 'Age | Value' })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }])
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d){return ((d.value.total/5208960)*100).toFixed(2)+"%"}])
         .sortBy(function(d) { return d.age; })
         .order(d3.descending);
 }
