@@ -9,6 +9,7 @@ body {
     padding: 0;
 }
 
+
 /*HEADER*/
 
 .logo {
@@ -42,7 +43,7 @@ body {
 
 h3 {
     margin-top: 10px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: bold;
     font-family: "Roboto", sans-serif;
 }
@@ -60,7 +61,6 @@ h3 {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-size: 8px;
-    /*transform: translate(6,65);*/
 }
 
 
@@ -68,16 +68,46 @@ h3 {
     font: 7px "Roboto";
 }
 
-.totalGraph, .countryTable, .countryPie, .sexTable {
+
+.totalGraph {
+
+    margin-bottom: 20px;
+    background-color: white;
+
+}
+
+.countryTable,
+.countryPie,
+.sexTable {
     margin-bottom: 50px;
 }
 
+/*.totalGraph svg{*/
+
+/*    width: 100%;*/
+
+/*    height: 165px;*/
+
+/*}*/
+
+/*.countryPie svg{*/
+
+/*    width: 100%;*/
+
+/*    height: 145px;*/
+
+/*}*/
 
 /*DATA_TABLES*/
 
 th {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: bold;
+    font-family: "Roboto", sans-serif;
+}
+
+td {
+    font-size: 10px;
     font-family: "Roboto", sans-serif;
 }
 
@@ -108,6 +138,21 @@ th {
         th {
             font-size: 18px;
         }
+
+        td {
+            font-size: 16px;
+        }
+
+
+        .countryTable {
+            margin-bottom: 100px;
+        }
+        .sexTable {
+            margin-bottom: 180px;
+        }
+        .totalGraph {
+            margin-bottom: 0px;
+        }
     }
 
 
@@ -115,8 +160,11 @@ th {
     @media (min-width:1024px) {
         /*TOTAL_ASYLUM_APPL_GRAPH*/
         h3 {
-            margin-top: 40px;
-            font-size: 30px;
+            font-size: 26px;
         }
 
+        .totalGraph svg {
+            width: 100%;
+            height: 400px;
+        }
     }
