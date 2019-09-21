@@ -23,29 +23,51 @@
             <p>Last update: 18-06-2019</p>
         </div>
     </header>
-    <div class="col-12 no-gutters container-fluid  text-center total_graph">
+    <div class="col-12 no-gutters container-fluid text-center totalGraph">
         <h3>Total asylum applicants per year <br>in 28 EU Countries</h3>
         <div id="total_asylum_applications_per_year" class="center-graphs"></div>
     </div>
     <div class="col-12 no-gutters container-fluid">
-        <div class="col-md-6 col-sm-12 no-gutters containter-fluid text-center">
-            <h3>Top 5 Countries</h3>
-            <div class="col-12 no-gutters container-fluid mx-auto">
-                <table class='table' id='top-5' >
-                    <thead>
-                        <tr class='header'>
-                            <th>Country</th>
-                            <th>Total</th>
-                            <!--<th>Percentage</th>-->
-                        </tr>
-                    </thead>
-                </table>
+        <div class="row no gutters container-fluid">
+            <div class="col-md-6 col-sm-12 text-center">
+                <!--<h3>Top 5 Countries</h3>-->
+                <div class="col-12 no-gutters container-fluid countryTable mx-auto">
+                    <table class='table' id='top-5'>
+                        <thead>
+                            <tr class='header'>
+                                <th>Country</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="top-5-pie" class="col-12 no-gutters container-fluid countryPie mx-auto"></div>
             </div>
-            <div id="top-5-pie" class="col-12 no-gutters container-fluid mx-auto"></div>
-        </div>
-        <div class="col-md-6 col-sm-12 no-gutters containter-fluid text-center">
-            <h3>Sex</h3>
+            <div class="col-md-6 col-sm-12 text-center">
+                <!--<h3>Sex</h3>-->
+                <div class="col-12 no-gutters container-fluid sexTable mx-auto">
+                    <table class='table' id="sexTable">
+                        <thead>
+                            <tr class='header'>
+                                <th>Sex</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <!--<h3>Age</h3>-->
+                <div class="col-12 no-gutters container-fluid mx-auto">
+                    <table class='table' id="ageTable">
+                        <thead>
+                            <tr class='header'>
+                                <th>Age</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
 
+            </div>
         </div>
     </div>
 

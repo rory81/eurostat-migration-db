@@ -68,8 +68,12 @@ h3 {
     font: 7px "Roboto";
 }
 
+.totalGraph, .countryTable, .countryPie, .sexTable {
+    margin-bottom: 50px;
+}
 
-/*COUNTRIES COLUMN*/
+
+/*DATA_TABLES*/
 
 th {
     font-size: 10px;
@@ -77,26 +81,7 @@ th {
     font-family: "Roboto", sans-serif;
 }
 
-.card {
-    margin-bottom: 50px;
-}
 
-
-
-
-/*.countries {*/
-
-/*    width: 100%;*/
-
-/*}*/
-
-/*SEX_AGE COLUMN*/
-
-/*.sex_age {*/
-
-/*    width: 100%;*/
-
-/*}*/
 
 @media (min-width:576px) {
     HEADER .logo {
@@ -118,6 +103,8 @@ th {
             margin-top: 40px;
             font-size: 18px;
         }
+
+        /*DATA_TABLES*/
         th {
             font-size: 18px;
         }

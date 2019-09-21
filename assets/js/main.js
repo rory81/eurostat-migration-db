@@ -14,8 +14,8 @@ function makeGraphs(error, migrData) {
     show_barChart(ndx);
     show_country_table(ndx);
     show_country_pie(ndx);
-    // show_sex_table(ndx);
-    // show_age_table(ndx);
+    show_sex_table(ndx);
+    show_age_table(ndx);
 
     dc.renderAll();
 
@@ -73,51 +73,183 @@ function show_country_pie(ndx) {
 
 function show_country_table(ndx) {
     var dataTable = dc.dataTable("#top-5");
-
-
-    //dimension
     var countryDim = ndx.dimension(function(d) { return d.GEO; });
+    var valGrpdDim = countryDim.group().reduce(
 
-    //group
-    var orderByWD = countryDim.group().reduceSum(function(d) { return d.Value; });
+        function(p, v) {
 
-    // Actually a dimension keyed on week and site
-    var fakeDateDim = {
-        top: function(d) {
-            var m = dc.d3.map();
-            countryDim.top(Infinity).forEach(function(g) {
-                if (m.has(g.GEO)) {
-                    m.get(g.GEO).Value += g.Value;
-                }
-                else {
-                    // Create the "record"
-                    m.set(g.GEO, {
-                        GEO: g.GEO,
-                        Value: g.Value
-                    });
-                }
-            });
+            ++p.number;
 
-            return m.values();
-        }
-    };
+            p.total += +v.Value;
 
+            return p;
+
+        },
+
+        function(p, v) {
+
+            --p.number;
+
+            p.total -= +v.Value;
+
+            return p;
+
+        },
+
+        function() {
+
+            // console.log('initias entered')
+
+            return { number: 0, total: 0 }
+
+        });
+
+    valGrpdDim.order(v => v.total);
 
     dataTable.width(800).height(800)
-        .dimension(fakeDateDim)
-        .group(function(d) { return '' })
-        .size(5)
-        .columns([
-            // function (d) { var format = d3.format('02d');
-            //    return d.date.getFullYear() +'/'+ format(d.date.getMonth()+1) + '/' + format(d.date.getDate()); },
-            //function (d) { return d.week; },
-            function(d) { return d.GEO; },
-            function(d) { return d.Value; }
-        ])
-        .sortBy(function(d) { return d.Value; })
-        .order(d3.descending);
 
-    dataTable.on('renderlet', function(chart) {
-        chart.selectAll('.dc-table-group').classed('info', true);
-    });
+        .dimension(valGrpdDim)
+        .group(function(d) { return 'Country | Value' })
+        .showGroups(false)
+        .size(5)
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }])
+        .sortBy(function(d) { return d.value.total; })
+        .order(d3.descending);
+}
+
+function show_sex_table(ndx) {
+    var dataTable = dc.dataTable("#sexTable");
+    var sexDim = ndx.dimension(function(d) { return d.SEX; });
+    var valGrpdDim = sexDim.group().reduce(
+
+        function(p, v) {
+
+            ++p.number;
+
+            p.total += +v.Value;
+
+            return p;
+
+        },
+
+        function(p, v) {
+
+            --p.number;
+
+            p.total -= +v.Value;
+
+            return p;
+
+        },
+
+        function() {
+
+            // console.log('initias entered')
+
+            return { number: 0, total: 0 }
+
+        });
+
+    valGrpdDim.order(v => v.total);
+
+    dataTable.width(800).height(800)
+
+        .dimension(valGrpdDim)
+        .group(function(d) { return 'Sex | Value' })
+        .showGroups(false)
+        .size(5)
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }])
+        .sortBy(function(d) { return d.value.total; })
+        .order(d3.descending);
+}
+function show_country_table(ndx) {
+    var dataTable = dc.dataTable("#top-5");
+    var countryDim = ndx.dimension(function(d) { return d.GEO; });
+    var valGrpdDim = countryDim.group().reduce(
+
+        function(p, v) {
+
+            ++p.number;
+
+            p.total += +v.Value;
+
+            return p;
+
+        },
+
+        function(p, v) {
+
+            --p.number;
+
+            p.total -= +v.Value;
+
+            return p;
+
+        },
+
+        function() {
+
+            // console.log('initias entered')
+
+            return { number: 0, total: 0 }
+
+        });
+
+    valGrpdDim.order(v => v.total);
+
+    dataTable.width(800).height(800)
+
+        .dimension(valGrpdDim)
+        .group(function(d) { return 'Country | Value' })
+        .showGroups(false)
+        .size(5)
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }])
+        .sortBy(function(d) { return d.value.total; })
+        .order(d3.descending);
+}
+
+function show_age_table(ndx) {
+    var dataTable = dc.dataTable("#ageTable");
+    var ageDim = ndx.dimension(function(d) { return d.AGE; });
+    var valGrpdDim = ageDim.group().reduce(
+
+        function(p, v) {
+
+            ++p.number;
+
+            p.total += +v.Value;
+
+            return p;
+
+        },
+
+        function(p, v) {
+
+            --p.number;
+
+            p.total -= +v.Value;
+
+            return p;
+
+        },
+
+        function() {
+
+            // console.log('initias entered')
+
+            return { number: 0, total: 0 }
+
+        });
+
+    // valGrpdDim.order(v => v.total);
+
+    dataTable.width(800).height(800)
+
+        .dimension(valGrpdDim)
+        .group(function(d) { return 'Age | Value' })
+        .showGroups(false)
+        .size(5)
+        .columns([function(d) { return d.key }, function(d) { return d.value.total }])
+        .sortBy(function(d) { return d.AGE; })
+        .order(d3.descending);
 }
