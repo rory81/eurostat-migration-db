@@ -62,13 +62,14 @@ function show_country_pie(ndx) {
 
     dc.pieChart('#top-5-pie')
         .width(330)
+        .height(180)
         .radius(90)
         .useViewBoxResizing(true)
         .dimension(dim)
         .group(top5CountryPie)
         .transitionDuration(1500)
         .cap(5)
-        .legend(dc.legend().x(270).y(0).gap(5))
+        .legend(dc.legend().x(-6).y(20).gap(6))
         .renderLabel(false);
 }
 
@@ -127,6 +128,11 @@ function show_sex_table(ndx) {
     var sexDim = ndx.dimension(function(d) { return d.SEX; });
     var grandTotal = 5208960;
 
+    // var pictures = [];
+    // pictures[0] = "/assets/images/male.png";
+    // pictures[1] = "/assets/images/female2.png";
+    // pictures[2] = "/assets/images/questionmark.png";
+
     var valGrpdDim = sexDim.group().reduce(
 
         function(p, v) {
@@ -165,9 +171,41 @@ function show_sex_table(ndx) {
         .group(function(d) { return 'Sex | Value' })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
+        .columns([function(d) {
+            if (d.key === 'Males') {
+
+                d.key = document.getElementById("images").src='/assets/images/male.png';
+                return d.key;
+            }
+            else if (d.key === 'Females') {
+                d.key = document.getElementById("images").src="/assets/images/female2.png";
+                return d.key;
+            }
+            else {
+                d.key = document.getElementById("images").src = "/assets/images/questionmark.png";
+                return d.key;
+            }
+        }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
         .sortBy(function(d) { return d.value.total; })
         .order(d3.descending);
+
+
+
+    // function(d) {
+    //     if (d.SEX === 'Males') {
+
+    //         d.SEX = "/assets/images/male.png";
+    //         return d.SEX;
+    //     }
+    //     else if (d.SEX === 'Females') {
+    //         d.SEX = "/assets/images/female2.png";
+    //         return d.SEX;
+    //     }
+    //     else {
+    //         d.SEX = "/assets/images/questionmark.png";
+    //         return d.SEX;
+    //     }
+    // }
 }
 
 function show_age_table(ndx) {
