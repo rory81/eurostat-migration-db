@@ -171,21 +171,23 @@ function show_sex_table(ndx) {
         .group(function(d) { return 'Sex | Value' })
         .showGroups(false)
         .size(5)
-        .columns([function(d) {
-            if (d.key === 'Males') {
+        .columns(
+            // [function(d) {
+        //     if (d.key === 'Males') {
+        //         var images = document.createElement("img");
+        //         images.setAttribute('src', '/assets/images/male.png');
 
-                d.key = document.getElementById("images").src='/assets/images/male.png';
-                return d.key;
-            }
-            else if (d.key === 'Females') {
-                d.key = document.getElementById("images").src="/assets/images/female2.png";
-                return d.key;
-            }
-            else {
-                d.key = document.getElementById("images").src = "/assets/images/questionmark.png";
-                return d.key;
-            }
-        }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
+        //         return images
+
+        //     }
+        //     else if (d.key === 'Females') {
+        //         return "Picture Female";
+        //     }
+        //     else {
+        //         return "Picture questionmark";
+        //     }
+        // }, 
+        [function(d){return d.key},function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
         .sortBy(function(d) { return d.value.total; })
         .order(d3.descending);
 

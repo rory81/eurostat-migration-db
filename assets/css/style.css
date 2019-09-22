@@ -150,6 +150,14 @@ td {
         .totalGraph {
             margin-bottom: 0px;
         }
+
+        .countryPie svg {
+            height: 200px;
+        }
+
+        .countryPie text {
+            font-size: 12px;
+        }
     }
 
 
@@ -165,9 +173,20 @@ td {
             height: 400px;
         }
 
+        .countryPie text {
+            font-size: 9px;
+        }
+
         .countryPie svg {
-            width: 400 px;
-            /*height: 400px;*/
+            height: 300px;
+        }
+
+    }
+
+    @media (min-width:1100px) {
+
+        .countryPie svg {
+            height: 350px;
         }
 
     }
