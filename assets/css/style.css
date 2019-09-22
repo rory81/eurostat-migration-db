@@ -183,10 +183,10 @@ td {
 
     }
 
-    @media (min-width:1100px) {
+    /*@media (min-width:1100px) {*/
 
-        .countryPie svg {
-            height: 350px;
-        }
+    /*    .countryPie svg {*/
+    /*        height: 350px;*/
+    /*    }*/
 
-    }
+    /*}*/
