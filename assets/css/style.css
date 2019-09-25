@@ -39,6 +39,10 @@ body {
     font-style: italic;
 }
 
+a{
+    color: #003399;
+}
+
 /*GENERAL STYLING*/
 
 h3 {
@@ -61,6 +65,10 @@ h3 {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-size: 8px;
+}
+
+svg {
+    : bold;
 }
 
 
