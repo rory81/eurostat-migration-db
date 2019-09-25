@@ -13,6 +13,7 @@ This data dashboard represents data about Asylum applicants in the 28 member sta
 An important question in the migration chain is not only how much applicants will come their way, but the composition of the migrationstream is also very important.
 For instance, when their are mostly males it is very likely that they travelled ahead and that family reunification will most likely follow. When the group of minors get bigger this will have consequences on the type of accomodations needed and the educational necessities. 
 
+Migration is not the only interesting statistical data Eurostat has. Therefore, the link to the Eurostat database is given top left, which opens to e new page.
 
 
 #Acknowledgments
