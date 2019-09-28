@@ -27,7 +27,7 @@ My main goal was to give this information without showering the users with all k
 
 The mockups were created with Pencil Project and are in the <a href="https://github.com/rory81/eurostat-migration-db/tree/master/assets/images" target="_blank">/assets/images</a> folder
 
-![mobileMockup](./assets/images/mockupMobile.PNG)
+![mobileMockup](./assets/images/mockupMobile.PNG){:height="100px" width="50px"}
 
 
 ##### Deviations from the Mockups
@@ -49,14 +49,14 @@ As font type Roboto was choosen as it makes text as well as numbers nicely readi
 
 This project has 1 page. A short description of the content of this page is written below.
 
-##### Total asylum applicants per year in 28 EU Countries
+### Total asylum applicants per year in 28 EU Countries
 This graph represents the total number of asylum applicants in the 28 member states from 2013 to 2018 and is the main focus for this dashboard. By clicking one or more years the selected bar will turn orange and the underlining tables and pie will show the composition of the influx of asylum seekers for those selected years.
 Years with a grey bar are not a part of the dataset, but if the user wants back to selecting all the available years, the button "Reset filters" can be used.
 
 Because this graph is the main focus of this dashboard it will stay in screen while the other tables will slide underneath it. Furthermore, this way the reset button is always readily available.
 
 
-##### Top-5 Country Table and Pie
+### Top-5 Country Table and Pie
 The most important countries are the top-5, because in the highest influx there is the most diversity or are certain trends better to observe and often more accurate.
 
 The percentages on the country table represent the percentage on the total influx for the selected years
@@ -64,17 +64,17 @@ The percentages on the country table represent the percentage on the total influ
 The pie slices or the country names in the legend of the pie chart can be selected if the user not only wants the influx of a specific period, but wants to zoom further into a specific top-5 country.
 Important to note is when years and countries are selected and the user clicks on the reset button the years as well as the countries are reset to the initial values, namely the influx over 2013-2018 and the corresponding top-5 countries.
 
-##### Sex Table
+### Sex Table
 The sex table only gives information about Male/Female/Unknown and doesn't reflect any information about gender. It will give the number and percentages based on the selected years and/or countries.
 
-##### Age Table
+### Age Table
 The age gives information about age categories and will give the number and percentages based on the selected years and/or countries.
 
 
-##### Location Dashboard
+### Location Dashboard
 The dashboard is available on <a href='https://rory81.github.io/eurostat-migration-db/' alt='location dashboard' target="_blank">GitHub</a>.
 
-##### More statistical information
+### More statistical information
 Migration is not the only interesting statistical data Eurostat has. Therefore, the link to the Eurostat database is given top left, which opens to a new page, to give the user access to more information when needed
 
 
@@ -108,7 +108,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 ## Testing
 
-#### Code Validation
+### Code Validation
 
 - The HTML validator <a href="https://validator.w3.org/">(W3C Markup Validation Service)</a> gives: "No errors or warnings to show".
 - The CSS validator <a href="https://jigsaw.w3.org/css-validator/">(W3C CSS Validation Service)</a> gives: "No Error Found." The validation was only done on the style.css and not on the external css files like dc.min.css.
@@ -116,21 +116,21 @@ In this section, you should mention all of the languages, frameworks, libraries,
     - arrow function syntax (=>)' is only available in ES6: however the tables are giving the requested result.
     - queue, d3, dc and crossfilter are undefined variables: this is because they are called from external sources.
 
-#### Responsiveness other devices
+### Responsiveness other devices
 Used the chrome developer tools to test the responsiveness on: Galaxy S5, iPhoneX, iPad and iPad Pro
 
 It is also tested on a lenovo yoga (small screen) and an acer aspire v nitro (bigger screen).
 
 <span style="color: red">The site has also been tested on the iPad Air 2 (horizontally and vertically)<span>
 
-#### Testing data
+### Testing data
 The numbers in the dashboard were checked with an Excel pivot table based on the same data. The total numbers per year were also displayed as comments in the main.js file in order to test the total numbers after making a big change.
 
 ## Deployment
 
 The site was developed using AWS Cloud 9
 
-#### Git(Hub) version control
+### Git(Hub) version control
 Git is used to track the changes made and with that to have version control. The following steps are needed to track the changes made in the local repository:
 
 **Step 1: $ git add [file]** Snapshots the file in preparation for versioning. For [file] fill in the (path to the) filename to be versioned.
@@ -140,7 +140,7 @@ Git is used to track the changes made and with that to have version control. The
 **Step 3: $ git push [file]** Uploads the local commits to GitHub
 
 
-#### Git(Hub) pages
+### Git(Hub) pages
 
 This dashboard is hosted using GitHub pages, on <a href="https://rory81.github.io/eurostat-migration-db/">https://rory81.github.io/eurostat-migration-db/</a>, deployed directly from the `master` branch. 
 
@@ -175,7 +175,7 @@ The underlining steps are needed to clone this GitHub repository to another loca
 
 The data was made available by the database of <a href="https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=migr_asyappctza&lang=en">Eurostat</a>.  
 
-# Acknowledgments
+## Acknowledgments
 - One of the results for the milestone 1 project was that I needed more detail in the Deployment part. Therefore I looked at the README from https://jbroks.github.io/GB-Accidents-Dashboard/
 - used https://code-institute-room.slack.com/archives/C7HD37Q1F/p1545124218942400 to obtain responsive charts
 - used multiple stackoverflow items to make the reset button
