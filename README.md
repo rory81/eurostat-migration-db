@@ -28,6 +28,7 @@ My main goal was to give this information without showering the users with all k
 The mockups were created with Pencil Project and are in the <a href="https://github.com/rory81/eurostat-migration-db/tree/master/assets/images" target="_blank">/assets/images</a> folder
 
 ![mobileMockup](./assets/images/mockupMobile.PNG){:height="100px" width="50px"}
+<img src="./assets/images/mockupMobile.PNG" data-canonical-src="./assets/images/mockupMobile.PNG" width="200" height="400" />
 
 
 ##### Deviations from the Mockups
