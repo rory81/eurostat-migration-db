@@ -123,6 +123,8 @@ It is also tested on a lenovo yoga (small screen) and an acer aspire v nitro (bi
 
 <span style="color: red">The site has also been tested on the iPad Air 2 (horizontally and vertically)<span>
 
+#### Testing data
+The numbers in the dashboard were checked with an Excel pivot table based on the same data. The total numbers per year were also displayed as comments in the main.js file in order to test the total numbers after making a big change.
 
 ## Deployment
 
