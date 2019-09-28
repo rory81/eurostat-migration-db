@@ -18,7 +18,6 @@ body {
 }
 
 .logo img {
-    max-width: auto;
     height: 100%;
     padding: 10px 0px;
 }
@@ -39,7 +38,7 @@ body {
     font-style: italic;
 }
 
-a{
+a {
     color: #003399;
 }
 
@@ -65,10 +64,6 @@ h3 {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-size: 8px;
-}
-
-svg {
-    : bold;
 }
 
 
@@ -129,72 +124,65 @@ td {
     .title p {
         font-size: 18px;
     }
+}
 
 
 
-    @media (min-width:720px) {
-        /*TOTAL_ASYLUM_APPL_GRAPH*/
-        h3 {
-            margin-top: 40px;
-            font-size: 18px;
-        }
+@media (min-width:720px) {
+    /*TOTAL_ASYLUM_APPL_GRAPH*/
+    h3 {
+        margin-top: 40px;
+        font-size: 18px;
+    }
 
-        /*DATA_TABLES*/
-        th {
-            font-size: 18px;
-        }
+    /*DATA_TABLES*/
+    th {
+        font-size: 18px;
+    }
 
-        td {
-            font-size: 16px;
-        }
-
-
-        .countryTable {
-            margin-bottom: 100px;
-        }
-        .sexTable {
-            margin-bottom: 180px;
-        }
-        .totalGraph {
-            margin-bottom: 0px;
-        }
-
-        .countryPie svg {
-            height: 200px;
-        }
-
-        .countryPie text {
-            font-size: 12px;
-        }
+    td {
+        font-size: 16px;
     }
 
 
-
-    @media (min-width:1024px) {
-        /*TOTAL_ASYLUM_APPL_GRAPH*/
-        h3 {
-            font-size: 26px;
-        }
-
-        .totalGraph svg {
-            width: 100%;
-            height: 400px;
-        }
-
-        .countryPie text {
-            font-size: 9px;
-        }
-
-        .countryPie svg {
-            height: 300px;
-        }
-
+    .countryTable {
+        margin-bottom: 100px;
+    }
+    .sexTable {
+        margin-bottom: 180px;
+    }
+    .totalGraph {
+        margin-bottom: 0px;
     }
 
-    /*@media (min-width:1100px) {*/
+    .countryPie svg {
+        height: 200px;
+    }
 
-    /*    .countryPie svg {*/
-    /*        height: 350px;*/
-    /*    }*/
+    .countryPie text {
+        font-size: 12px;
+    }
+}
 
-    /*}*/
+
+
+@media (min-width:1024px) {
+    /*TOTAL_ASYLUM_APPL_GRAPH*/
+    h3 {
+        font-size: 26px;
+    }
+
+    .totalGraph svg {
+        width: 100%;
+        height: 400px;
+    }
+
+    .countryPie text {
+        font-size: 9px;
+    }
+
+    .countryPie svg {
+        height: 300px;
+    }
+
+}
