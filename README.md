@@ -59,7 +59,7 @@ Because this graph is the main focus of this dashboard it will stay in screen wh
 ##### Top-5 Country Table and Pie
 The most important countries are the top-5, because in the highest influx there is the most diversity or are certain trends better to observe and often more accurate.
 
-<span style="color: red"> The percentages on the country table represent the percentage on the total influx for the selected years </span>
+The percentages on the country table represent the percentage on the total influx for the selected years
 
 The pie slices or the country names in the legend of the pie chart can be selected if the user not only wants the influx of a specific period, but wants to zoom further into a specific top-5 country.
 Important to note is when years and countries are selected and the user clicks on the reset button the years as well as the countries are reset to the initial values, namely the influx over 2013-2018 and the corresponding top-5 countries.
