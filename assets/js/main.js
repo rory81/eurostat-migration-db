@@ -11,10 +11,10 @@ function makeGraphs(error, migrData) {
         d.Value = d.Value.replace(/,/g, "");
         d.Value = +d.Value; //coerce to number
 
-        d.AGE = d.AGE.replace(/From /g, "Between ")
-        d.AGE = d.AGE.replace(/Less than /g, "Age under ")
-        d.AGE = d.AGE.replace(/Unknown/g, " Unknown")
-        d.AGE = d.AGE.replace(/65 years or over/g, "Over 64 years")
+        d.AGE = d.AGE.replace(/From /g, "Between ");
+        d.AGE = d.AGE.replace(/Less than /g, "Age under ");
+        d.AGE = d.AGE.replace(/Unknown/g, " Unknown");
+        d.AGE = d.AGE.replace(/65 years or over/g, "Over 64 years");
 
     });
 
@@ -79,9 +79,6 @@ function show_country_pie(ndx) {
 function show_country_table(ndx) {
     var dataTable = dc.dataTable("#top-5");
     var countryDim = ndx.dimension(function(d) { return d.GEO; });
-    var dateDim = ndx.dimension(function(d) { return d.TIME; });
-    // var grandTotal = d3.sum(dc.pluck("Value"));
-    var grandTotal = 5208960;
 
     var valGrpdDim = countryDim.group().reduce(
 
@@ -118,10 +115,10 @@ function show_country_table(ndx) {
     dataTable.width(800).height(800)
 
         .dimension(valGrpdDim)
-        .group(function(d) { return "Country | Value" })
+        .group(function(d) { return "Country | Value"; })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
+        .columns([function(d) { return d.key; }, function(d) { return d.value.total; }, function(d) { return ((d.value.total / (ndx.groupAll().reduceSum(dc.pluck("Value")).value())) * 100).toFixed(2) + "%"; }])
         .sortBy(function(d) { return d.value.total; })
         .order(d3.descending);
 }
@@ -129,7 +126,6 @@ function show_country_table(ndx) {
 function show_sex_table(ndx) {
     var dataTable = dc.dataTable("#sexTable");
     var sexDim = ndx.dimension(function(d) { return d.SEX; });
-    var grandTotal = 5208960;
 
     var valGrpdDim = sexDim.group().reduce(
 
@@ -155,7 +151,7 @@ function show_sex_table(ndx) {
 
         function() {
 
-            return { number: 0, total: 0 }
+            return { number: 0, total: 0 };
 
         });
 
@@ -164,10 +160,10 @@ function show_sex_table(ndx) {
     dataTable.width(800).height(800)
 
         .dimension(valGrpdDim)
-        .group(function(d) { return "Sex | Value" })
+        .group(function(d) { return "Sex | Value"; })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
+        .columns([function(d) { return d.key; }, function(d) { return d.value.total; }, function(d) { return ((d.value.total / (ndx.groupAll().reduceSum(dc.pluck("Value")).value())) * 100).toFixed(2) + "%"; }])
         .sortBy(function(d) { return d.value.total; })
         .order(d3.descending);
 
@@ -176,8 +172,6 @@ function show_sex_table(ndx) {
 function show_age_table(ndx) {
     var dataTable = dc.dataTable("#ageTable");
     var ageDim = ndx.dimension(function(d) { return d.AGE; });
-    var grandTotal = 5208960;
-
 
     var valGrpdDim = ageDim.group().reduce(
 
@@ -203,19 +197,17 @@ function show_age_table(ndx) {
 
         function() {
 
-            return { number: 0, total: 0 }
+            return { number: 0, total: 0 };
 
         });
-
-    // valGrpdDim.order(v => v.total);
 
     dataTable.width(800).height(800)
 
         .dimension(valGrpdDim)
-        .group(function(d) { return "Age | Value" })
+        .group(function(d) { return "Age | Value"; })
         .showGroups(false)
         .size(5)
-        .columns([function(d) { return d.key }, function(d) { return d.value.total }, function(d) { return ((d.value.total / grandTotal) * 100).toFixed(2) + "%" }])
+        .columns([function(d) { return d.key; }, function(d) { return d.value.total; }, function(d) { return ((d.value.total / (ndx.groupAll().reduceSum(dc.pluck("Value")).value())) * 100).toFixed(2) + "%"; }])
         .sortBy(function(d) { return d.age; })
         .order(d3.descending);
 }
