@@ -164,7 +164,7 @@ td {
     }
 }
 
-@media (min-width:990px) {
+@media (min-width:768px) {
     /*TOTAL_ASYLUM_APPL_GRAPH*/
 
     .totalGraph svg {
