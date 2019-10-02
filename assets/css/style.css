@@ -164,6 +164,20 @@ td {
     }
 }
 
+@media (min-width:990px) {
+    /*TOTAL_ASYLUM_APPL_GRAPH*/
+
+    .totalGraph svg {
+        width: 100%;
+        height: 350px;
+    }
+
+
+    .countryPie svg {
+        height: 250px;
+    }
+
+}
 
 
 @media (min-width:1024px) {
