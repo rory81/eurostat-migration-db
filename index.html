@@ -15,25 +15,28 @@
 
 <body>
     <header>
+        <!--add header with eurostat logo-->
         <div class="col-12 logo no-gutters container-fluid text-center">
-            <img src="assets/images/eurostatLogo3.png" alt="Eurostat Logo">
+            <img src="./assets/images/eurostatLogo3.png" alt="Eurostat Logo">
         </div>
         <div class="col-12 title container-fluid">
             <h1>Migration Data Visualized</h1>
             <p>Last update: 18-06-2019; <a href="https://ec.europa.eu/eurostat/data/database" target="_blank">link to the Eurostat database.</a></p>
         </div>
     </header>
+    <!--Add bar chart with the number of asylum applicants per year for the 28 EU member states-->
     <div class="col-12 no-gutters container-fluid text-center totalGraph sticky-top">
         <h3>Total asylum applicants per year in 28 EU Countries</h3>
         <a class="btn btn-primary" href="javascript:dc.filterAll(); dc.renderAll();" role="button">Reset filters</a>
-        <!--<button type="button" class="btn btn-primary">Reset filters</button>-->
         <div id="total_asylum_applications_per_year" class="center-graphs"></div>
     </div>
+    <!--Column for the tables and pie responsive to the selections made in the bar chart-->
     <div class="col-12 no-gutters container-fluid">
         <div class="row no gutters container-fluid">
+            <!--Column for the top-5 countries table and pie-->
             <div class="col-md-6 col-sm-12 text-center">
-                <!--<h3>Top 5 Countries</h3>-->
                 <div class="col-12 no-gutters container-fluid countryTable mx-auto">
+                    <!--Top-5 country table-->
                     <table class='table' id='top-5'>
                         <thead>
                             <tr class='header'>
@@ -44,24 +47,25 @@
                         </thead>
                     </table>
                 </div>
+                <!--Top-5 country pie-->
                 <div id="top-5-pie" class="col-12 no-gutters container-fluid countryPie"></div>
             </div>
+            <!--Column for the sex and age table-->
             <div class="col-md-6 col-sm-12 text-center">
-                <!--<h3>Sex</h3>-->
                 <div class="col-12 no-gutters container-fluid sexTable mx-auto">
+                    <!--Sex table-->
                     <table class='table' id="sexTable">
                         <thead>
                             <tr class='header'>
-                                <!--<th> </th>-->
-                                <th class='dc-table-column_0'>Sex</th>
+                                <th>Sex</th>
                                 <th>Total</th>
                                 <th>Percentage</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
-                <!--<h3>Age</h3>-->
                 <div class="col-12 no-gutters container-fluid mx-auto">
+                    <!--Age table-->
                     <table class='table' id="ageTable">
                         <thead>
                             <tr class='header'>

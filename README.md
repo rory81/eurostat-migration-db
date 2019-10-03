@@ -56,6 +56,7 @@ This graph represents the total number of asylum applicants in the 28 member sta
 Years with a grey bar are not a part of the dataset, but if the user wants back to selecting all the available years, the button "Reset filters" can be used.
 
 Because this graph is the main focus of this dashboard it will stay in screen while the other tables will slide underneath it. Furthermore, this way the reset button is always readily available.
+Important to know is that due to this design choice it is not possible to see the whole website on small screens while holding them horizontally. Vertically the bar chart will remain on the top so the user can make changes to the filter choices while seing the results immediately change accordingly.
 
 
 ### Top-5 Country Table and Pie
@@ -92,8 +93,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
     - The project uses CSS to style the HTML
     - Bootstrap (https://getbootstrap.com/) classes are used
 - [JQuery](https://jquery.com)
-    - The project uses JQuery to simplify DOM manipulation.
-    - Bootstrap (https://getbootstrap.com/) plugins are used
+    - JQuery was added for bootstrap
 - [JavaScript](https://www.javascript.com/)
     - The project uses JavaScript to create the d3 dashboard elements with the crossfiltering.
     - To read the .csv file "migrationData" in the <a href="https://github.com/rory81/eurostat-migration-db/tree/master/assets/data" target="_blank">data folder</a>
@@ -123,7 +123,7 @@ Used the chrome developer tools to test the responsiveness on: Galaxy S5, iPhone
 
 It is also tested on a lenovo yoga (small screen) and an acer aspire v nitro (bigger screen).
 
-<span style="color: red">The site has also been tested on the iPad Air 2 (horizontally and vertically)<span>
+The site has also been tested on the iPad Air 2 (horizontally and vertically)
 
 ### Testing data
 The numbers in the dashboard were checked with an Excel pivot table based on the same data. The total numbers per year were also displayed as comments in the main.js file in order to test the total numbers after making a big change.

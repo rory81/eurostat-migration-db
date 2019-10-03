@@ -52,7 +52,7 @@ h3 {
 }
 
 
-/*TOTAL_ASYLUM_APPL_GRAPH*/
+/*STYLING TOTAL_ASYLUM_APPL_GRAPH*/
 
 .center-graphs.dc-chart {
     display: block;
@@ -76,8 +76,18 @@ h3 {
 
     margin-bottom: 20px;
     background-color: white;
-
 }
+
+.btn-primary {
+    background-color: #003399;
+}
+
+.btn {
+    font-size: 14px;
+}
+
+
+/*STYLING DATATABLES and PIE info*/
 
 .countryTable,
 .countryPie,
@@ -89,16 +99,6 @@ h3 {
     font-family: "Roboto", sans-serif;
     font-size: 11px;
 }
-
-.btn-primary {
-    background-color: #003399;
-}
-
-.btn {
-    font-size: 14px;
-}
-
-/*DATA_TABLES*/
 
 th {
     font-size: 12px;
@@ -112,7 +112,7 @@ td {
 }
 
 
-
+/*MEDIA queries for responsiveness*/
 @media (min-width:576px) {
     HEADER .logo {
         height: 100px;
@@ -125,8 +125,6 @@ td {
         font-size: 18px;
     }
 }
-
-
 
 @media (min-width:720px) {
     /*TOTAL_ASYLUM_APPL_GRAPH*/
@@ -143,7 +141,6 @@ td {
     td {
         font-size: 16px;
     }
-
 
     .countryTable {
         margin-bottom: 100px;
@@ -165,9 +162,9 @@ td {
 }
 
 
+/*added media query with min-width 1024 px to make it work on a iPad (air 2) while holding it horizontally*/
 
 @media (min-width:1024px) {
-    /*TOTAL_ASYLUM_APPL_GRAPH*/
     h3 {
         font-size: 26px;
     }
@@ -188,13 +185,10 @@ td {
 }
 
 @media (min-width:1125px) {
-    /*TOTAL_ASYLUM_APPL_GRAPH*/
-
     .totalGraph svg {
         width: 100%;
         height: 400px;
     }
-
 
     .countryPie svg {
         height: 300px;
