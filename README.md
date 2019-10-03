@@ -181,7 +181,7 @@ The data was made available by the database of <a href="https://appsso.eurostat.
 - One of the results for the milestone 1 project was that I needed more detail in the Deployment part. Therefore I looked at the README from https://jbroks.github.io/GB-Accidents-Dashboard/
 - used https://code-institute-room.slack.com/archives/C7HD37Q1F/p1545124218942400 to obtain responsive charts
 - used multiple stackoverflow items to make the reset button
-- A huge thanks to tutor Niel McEwan. Where many trying to halp me were stuck he really came through with my dataTables.
+- A huge thanks to tutor Niel McEwan. Where many trying to help me were stuck he really came through with my dataTables.
 - Thanks to my mentor Maranatha Ilesanmi for advising me.
 
 
