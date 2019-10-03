@@ -78,7 +78,7 @@ The age gives information about age categories and will give the number and perc
 The dashboard is available on <a href='https://rory81.github.io/eurostat-migration-db/' alt='location dashboard' target="_blank">GitHub</a>.
 
 ### More statistical information
-Migration is not the only interesting statistical data Eurostat has. Therefore, the link to the Eurostat database is given top left, which opens to a new page, to give the user access to more information when needed
+Migration is not the only interesting statistical data Eurostat has. Therefore, the link to the Eurostat database is given top left of the dashboard, which opens to a new page, to give the user access to more information when needed
 
 
 
