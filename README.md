@@ -56,7 +56,7 @@ This graph represents the total number of asylum applicants in the 28 member sta
 Years with a grey bar are not a part of the dataset, but if the user wants back to selecting all the available years, the button "Reset filters" can be used.
 
 Because this graph is the main focus of this dashboard it will stay in screen while the other tables will slide underneath it. Furthermore, this way the reset button is always readily available.
-Important to know is that due to this design choice it is not possible to see the whole website on small screens while holding them horizontally. Vertically the bar chart will remain on the top so the user can make changes to the filter choices while seing the results immediately change accordingly.
+Important to know is that due to this design choice it is not possible to see the whole website on small screens while holding them horizontally. Vertically the bar chart will remain on the top so the user can make changes to the filter choices while seeing the results immediately change accordingly.
 
 
 ### Top-5 Country Table and Pie
